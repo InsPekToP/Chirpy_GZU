@@ -50,6 +50,10 @@ jobs:
         env:
           JEKYLL_ENV: "production"
 
+      - name: Run HTML-Proofer
+        run: bundle exec htmlproofer ./_site --disable-external
+        continue-on-error: true
+
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
